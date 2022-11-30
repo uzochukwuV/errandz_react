@@ -1,2 +1,2 @@
-# errandz_react
-errandz app 
+# The Errandz App Project Repo
+
