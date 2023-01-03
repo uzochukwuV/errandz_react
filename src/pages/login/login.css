@@ -1,54 +1,37 @@
-input {
-    display: block;
-    width: 100%;
+.main-box {
+    position: relative;
+    background: #F4F4F4;
+    width: 100vw;
+    min-height: 100vh;
+    
+}
+.form-box {
+    max-width: 760px;
+    padding: 10px;
     
 }
 
-.page-div {
-    height: 1000px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(245, 250, 246, 0.527);
-}
 
-.form-div {
-    display: flex;
-    flex-direction: column;
-    height: 600px;
-    width: 750px;
-    margin: 22px 22px;
-    background: white;
-    gap: 30px;
+.form-el {
+    background: #FFFFFF;
     border-radius: 10px;
-    padding: 200px 100px;
-}
-
-form div {
-    padding: 0px;
-    width: 700px;
-}
-
-@media screen and (max-width:700px) {
-    .page-div {
-        height: 100vh;
-    }
-    .form-div {
-        height: 250px;
-        width: 97vw;
-        padding: 15px 10px;
-        position: relative;
-         
-    }   
-    .label-word {
-        font-size: small;
-        padding: 2px;
-    }
-   @media screen and (max-height: 1000px) {
-    .page-div {
-        max-height: 100vh;
-    }
+    padding: 100px 80px;
+    margin-bottom: 10px;
     
-   }
-   
+}
+
+.form-text {
+    display: flex;
+    justify-content: center;
+    font-family: "Raleway", Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.check-box , .check-box:focus , .check-box::after{
+    border-radius: 0;
+    border: 2px solid gray;
+}
+
+.check-box:checked {
+    background-color: rgb(104, 101, 101);
+    border: 1px solid gray;
 }

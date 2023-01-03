@@ -1,51 +1,84 @@
-import React from 'react'
-import Navbar from '../../components/nav/navbar';
+/* Login components */
+import {
+	Form,
+	FormGroup,
+	Input,
+	InputGroup,
+	Label,
+	Button,
+	Container,
+} from "reactstrap";
+import React from "react";
+import Navbar from "../../components/nav/navbar";
+import "./login.css";
 
 export default function Login() {
-  return (
-    <div>{ false ? <div>hi<form onClick={()=> localStorage.clear()}>
-      <button type='submit' >logout</button>
-      </form>
-      </div>:  
-      <div className='page-div'>
-            <Navbar />
-        
-            <div className='d-flex flex-column'>
-                <div className='text-center'>
-                  <p className='fs-2'>Sign in to your account</p>
-                </div>
-                <div className='form-div '>
-                <form className="d-flex flex-column h-100 gap-4" method='post'>
-            
-                      <div  className='input-group m-0'> 
-                          <input type="email" className='form-control'
-                                  name="email" placeholder="E-mail" required id='email' />
-                      </div>
-                        <div className='input-group m-0'>  
-                            <input type="password" className='form-control'
-                                name="password" placeholder="Password" required id='password'  />
-                        </div>
-                        <div className='input-group d-flex m-0 p-0 flex-row '>
-                                  <input className="form-check-input text-dark ms-2 py-2" type="checkbox" value="" id="flexCheckChecked" />
-                                    <label className="ps-3 flex-fill label-word" htmlFor="flexCheckChecked">
-                                    Show password
-                                    </label>
-                                  <a href='#' className='text-dark reset-link label-word me-0 float-right'>Forgot Password?</a>
-                        </div>
-                        <div  className='input-group m-0 align-self-baseline btn-div'>
-                            <button type="submit" onClick={(e)=>{
-                              e.preventDefault();
-                              }}  className='btn btn-dark form-control'>Submit</button>
-                        </div>
-            
-        </form>
-   
-                </div>
-                <div className='text-center'>
-                  <p>Don't have an account? Sign Up</p>
-                </div>
-            </div>
-        </div> }
-      </div>
-  )
+	return (
+		<div>
+			{false ? (
+				<div>
+					hi
+					<form onClick={() => localStorage.clear()}>
+						<button type='submit'>logout</button>
+					</form>
+				</div>
+			) : (
+				<div className="main-box">
+					<Navbar />
+
+					<Container
+						fluid={true}
+						className='border px-0 vh-100 position-relative justify-content-center align-items-center
+       vw-100 d-flex'>
+						<Container className='container-fluid position-absolute form-box'>
+							
+									<div className="form-text fw-bold text-dark">
+										<h4>Sign in to your account</h4>
+									</div>
+									
+									<Form className="d-flex flex-column form-el gap-2">
+										<FormGroup className="flex-1">
+											<Label for='exampleEmail' hidden>
+												Email
+											</Label>
+											<Input
+												id='exampleEmail'
+												name='email'
+												placeholder='E-mail'
+												type='email'
+											/>
+										</FormGroup>{" "}
+										<FormGroup className="flex-1">
+											<Label for='examplePassword' hidden>
+												Password
+											</Label>
+											<Input
+												id='examplePassword'
+												name='password'
+												placeholder='Password'
+												type='password'
+											/>
+										</FormGroup>
+										<FormGroup check className="text-dark d-flex gap-1">
+											<Input type="checkbox" className="check-box" />
+											<Label check >
+											Show Password
+											</Label>
+											<div className="d-inline-flex flex-fill justify-content-end px-1">
+												<a href="" className=" text-dark">Forgot Password</a>
+											</div>
+										</FormGroup>
+										<Button className="flex-1">Submit</Button>
+									</Form>
+								
+								<div className='form-text'>
+									<p>Don't have an account? Sign Up</p>
+								</div>
+							
+						</Container>
+					</Container>
+				</div>
+			)}
+		</div>
+	);
 }
