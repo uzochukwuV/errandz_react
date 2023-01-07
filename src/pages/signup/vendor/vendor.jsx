@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from '../../../components/nav/navbar'
 import { Nav, Container, Input, InputGroup, Form, FormGroup , Label, Button} from 'reactstrap'
 import "./vendor.css"
+import { useGoogleOneTapLogin } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
+
+
 
 function Vendor() {
+  
+
   return (
     <div className='main-box'>
+
+
         <div className='NavBox'>
         <Navbar />
         </div>

@@ -8,9 +8,14 @@ import {
 	Button,
 	Container,
 } from "reactstrap";
-import React, { useState } from "react";
+import React, { useState , useCallback, useEffect, use} from "react";
 import Navbar from "../../components/nav/navbar";
 import "./login.css";
+import { GoogleLogin} from '@react-oauth/google';
+
+
+
+
 
 export default function Login() {
 	const [show, setshow] = useState(false);
@@ -18,19 +23,19 @@ export default function Login() {
 		setshow({ ...show, show: !show });
 	};
 
+	const handleSubmit = useCallback(()=>{
+		window.alert("jfytdjtrdjrfdfg")
+	});
+
+	
+
+
 	return (
 		<div>
-			{false ? (
-				<div>
-					hi
-					<form onClick={() => localStorage.clear()}>
-						<button type='submit'>logout</button>
-					</form>
-				</div>
-			) : (
+			
 				<div className='main-box'>
-					<div className="flex-0 bg-dark">
-					<Navbar />
+					<div className='flex-0 bg-dark'>
+						<Navbar />
 					</div>
 					<br />
 					<br />
@@ -43,7 +48,30 @@ export default function Login() {
 								<p>Sign in to your account</p>
 							</div>
 
-							<Form className='d-flex flex-column form-el gap-2'>
+							<Form 
+							className='d-flex flex-column form-el gap-2'
+							onSubmit={(event)=>{
+								event.preventDefault();
+								handleSubmit();
+								console.log("ok")
+							}}
+							>
+								<div className="h-10 d-flex flex-column mx-auto justify-content-center alig">
+									<p className="mx-auto fw-semi-bold fs-4">Sign in with</p>
+							<GoogleLogin
+							onSuccess={credentialResponse => {
+								console.log(credentialResponse);
+							}}
+							onError={() => {
+								console.log('Login Failed');
+							}}
+							size="large"
+							width="300px"
+							ux_mode="popup"
+							
+							/>
+							<p className="mx-auto fw-semibold fs-5">Or</p>
+							</div>
 								<FormGroup className='flex-1 form-group'>
 									<Label for='exampleEmail' hidden>
 										Email
@@ -66,7 +94,9 @@ export default function Login() {
 										type={show ? "text" : "password"}
 									/>
 								</FormGroup>
-								<FormGroup check className='text-dark d-flex gap-1 form-group mb-2'>
+								<FormGroup
+									check
+									className='text-dark d-flex gap-1 form-group mb-2'>
 									<Input
 										type='checkbox'
 										className='check-box'
@@ -83,17 +113,19 @@ export default function Login() {
 								<div className='flex-1 form-group'>
 									<Button className=' bttn w-100'>Submit</Button>
 								</div>
-							</Form>
+								
 
+							</Form>
 							<div className='accept-text mx-auto'>
 								Don't have an account? Sign Up
 							</div>
+							
 						</Container>
 					</Container>
 					<br />
 					<br />
 				</div>
-			)}
+			
 		</div>
 	);
 }
