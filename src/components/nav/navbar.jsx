@@ -5,7 +5,7 @@ import errandLogo from "../../assets/errandLogo.svg"
 
 export default function Navbar() {
   return (
-    <nav class="navbar navbar-expand-md navbar-dark bg-black vw-100 navbar-fixed" aria-label="Seventh navbar example">
+    <nav class="navbar navbar-expand-md navbar-dark vw-100 navbar-fixed" aria-label="Seventh navbar example">
       <div class="container">
         <a class="navbar-brand" href="#">
           <img src={errandLogo} alt="Logo" width="134px" height="44.6" class="d-inline-block align-text-top" />
